@@ -23,6 +23,7 @@ jobs:
 #          --verbosity normal
   build-and-push:
     name: build and push image to DockerHub
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
