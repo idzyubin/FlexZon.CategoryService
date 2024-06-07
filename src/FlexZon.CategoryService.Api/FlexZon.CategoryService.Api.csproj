@@ -15,11 +15,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="$(PkgFlexZon_CategoryService_Contract)\content\Protos\*.proto" GrpcServices="Both"/>
+        <Protobuf Include="..\FlexZon.CategoryService.Contract\Protos\*.proto" GrpcServices="Both" Link="Protos\*.proto"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FlexZon.CategoryService.Contract" Version="1.0.0" GeneratePathProperty="true"/>
         <PackageReference Include="Grpc.AspNetCore" Version="2.63.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="8.0.6"/>
         <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.8.6"/>
