@@ -2,7 +2,7 @@
 
 namespace FlexZon.CategoryService.Application;
 
-public sealed class BaseHandler<TRequest, TResponse>(IHandler<TRequest, TResponse> inner)
+public sealed class ValidationHandlerDecorator<TRequest, TResponse>(IHandler<TRequest, TResponse> inner)
     : IHandler<TRequest, TResponse>
     where TRequest : notnull
     where TResponse : notnull
