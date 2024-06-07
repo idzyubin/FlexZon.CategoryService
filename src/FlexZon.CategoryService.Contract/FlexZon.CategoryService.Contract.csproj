@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>FlexZon.CategoryService.Contract</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>idzyubin</Authors>
+        <Company>FlexZon</Company>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="Protos\**\*.proto" Pack="true" Visible="true"/>
+    </ItemGroup>
+</Project>

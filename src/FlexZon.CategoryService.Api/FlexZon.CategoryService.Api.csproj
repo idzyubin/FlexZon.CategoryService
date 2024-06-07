@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>flexzon_category_service</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>true</WarningsAsErrors>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <PublishAot>true</PublishAot>
+        <PublishTrimmed>true</PublishTrimmed>
+        <IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
+        <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Protobuf Include="$(PkgFlexZon_CategoryService_Contract)\content\Protos\*.proto" GrpcServices="Both"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FlexZon.CategoryService.Contract" Version="1.0.0" GeneratePathProperty="true"/>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.63.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="8.0.6"/>
+        <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.8.6"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FlexZon.CategoryService.Application\FlexZon.CategoryService.Application.csproj"/>
+    </ItemGroup>
+
+</Project>
