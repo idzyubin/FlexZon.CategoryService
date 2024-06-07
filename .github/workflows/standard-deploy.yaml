@@ -1,0 +1,40 @@
+﻿name: build and deploy
+on: [push]
+jobs: 
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+#      - name: Test
+#        run: dotnet test <MyProject>.Tests/
+#          /p:CollectCoverage=true
+#          /p:CoverletOutput=TestResults/
+#          /p:CoverletOutputFormat=opencover
+#          --no-build
+#          --verbosity normal
+  build-and-push:
+    name: build and push image to DockerHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Login to Docker registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_TOKEN}}
+      - name: build and push docker image to registry
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: idzyubin/flex_zon_category_service:latest
